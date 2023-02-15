@@ -28,6 +28,7 @@ public class VendingMachine
         //Change for each purchase
         double change = 0;
         
+        //Transactions
         if(check == 1){
             if(payment < 1.5){
                 System.out.println("Sorry not enough money was entered. Your money will be given back. Please try again");
@@ -102,7 +103,25 @@ public class VendingMachine
             System.out.println("Sorry, invalid selection. Please try again");
             change = payment;
         }
+        
+        //Confirming transaction and Departure Message
+        System.out.println("Do you want to cancel this transaction? Yes or No: ");
+        String confirm = scan.next();
+        if(confirm.equalsIgnoreCase("Yes"))
+        {
+            System.out.println("Your change is $" + payment + " Have a nice day");
 
-        System.out.println("Your change is $" + change);
+        }
+        else if(confirm.equalsIgnoreCase("No"))
+        {
+            System.out.println("Your change is $" + change);
+            System.out.println("I hope you enjoy your snack!");
+        }
+        else
+        {
+            System.out.println("Error has occurred");
+            System.out.println("Your change is $" + payment + " please try again.");
+        }
+
     }
 }
